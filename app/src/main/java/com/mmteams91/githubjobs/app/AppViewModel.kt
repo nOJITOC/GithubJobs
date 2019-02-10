@@ -33,7 +33,7 @@ open class AppViewModel @Inject constructor(
 
     fun <T> wrapWithProgress(flowable: Flowable<T>): Flowable<T> = flowable
             .doOnFirst { publishHideProgressEvent() }
-            .doOnError { publishHideProgressEvent() }
+            .doFinally { publishHideProgressEvent() }
             .doOnSubscribe { publishShowProgressEvent() }
 
 
