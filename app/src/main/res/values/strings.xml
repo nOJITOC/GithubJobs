@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GithubJobs</string>
+    <string name="network_error_message">Ошибка. Соединение с интернетом отсутствует.</string>
+    <string name="default_snack_bar_message">Что-то пошло не так. Попробуйте повторить позже.</string>
+    <string name="query_description">Enter a search term to search for a job</string>
+    <string name="search_hint">Enter here and submit</string>
+    <string name="find_job">Find job</string>
+    <string name="location">Location:</string>
+    <string name="type">Type:</string>
+    <string name="url">Url:</string>
+    <string name="company">Company:</string>
+    <string name="company_url">Company url:</string>
+    <string name="vacancy">Vacancy</string>
 </resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:padding="@dimen/spacing_16">
+
+
+        <TextView
+            android:id="@+id/createdAt"
+            style="@style/Text.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="18 september 2019" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Text.Main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/createdAt"
+            tools:text="Unity developer" />
+
+        <Space
+            android:id="@+id/spaceForCity"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_16"
+            app:layout_constraintEnd_toStartOf="@id/logo"
+            app:layout_constraintHorizontal_weight="70"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/location"
+            style="@style/Text.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spaceForCity"
+            tools:text="@string/location" />
+
+        <TextView
+            android:id="@+id/type"
+            style="@style/Text.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            app:layout_constraintEnd_toStartOf="@id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            tools:text="@string/type" />
+
+        <TextView
+            android:id="@+id/company"
+            style="@style/Text.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            app:layout_constraintEnd_toStartOf="@id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type"
+            tools:text="@string/company" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/company"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="30"
+            app:layout_constraintStart_toEndOf="@id/spaceForCity"
+            app:layout_constraintTop_toTopOf="@id/location"
+            tools:src="@drawable/temp" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrierAboveDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="company,type,location,title,logo" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/Text.Main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrierAboveDescription"
+            tools:text="Some description" />
+
+        <TextView
+            android:id="@+id/howToApply"
+            style="@style/Text.Main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

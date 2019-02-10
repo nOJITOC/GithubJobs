@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:id="@+id/requestContainer"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text.Hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_16"
+        android:layout_marginEnd="@dimen/spacing_16"
+        android:text="@string/query_description" />
+
+    <EditText
+        android:id="@+id/searchText"
+        style="@style/Text.Main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_16"
+        android:layout_marginTop="@dimen/spacing_8"
+        android:maxLines="1"
+        android:inputType="text"
+        android:layout_marginEnd="@dimen/spacing_16"
+        android:hint="@string/search_hint"
+        android:imeOptions="actionDone">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/findJob"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_16"
+        android:layout_marginTop="@dimen/spacing_8"
+        android:layout_marginEnd="@dimen/spacing_16"
+        android:text="@string/find_job" />
+</LinearLayout>
