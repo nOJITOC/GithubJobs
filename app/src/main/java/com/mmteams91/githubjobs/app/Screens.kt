@@ -2,7 +2,6 @@ package com.mmteams91.githubjobs.app
 
 import android.os.Parcelable
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import com.mmteams91.githubjobs.features.job.domain.Job
 import com.mmteams91.githubjobs.features.job.presentation.details.JobDetailsFragment
 import com.mmteams91.githubjobs.features.job.presentation.list.JobsFragment
@@ -14,8 +13,6 @@ sealed class Screen(
         val addToBackStack: Boolean = true,
         val isRoot: Boolean = false
 ) : Parcelable {
-
-    open val withTransaction: (FragmentTransaction.() -> Unit)? = null
 
     abstract fun newInstance(): Fragment
 
