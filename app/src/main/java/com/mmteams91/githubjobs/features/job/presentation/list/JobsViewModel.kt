@@ -13,10 +13,10 @@ import io.reactivex.processors.SingleQueueProcessor
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-private const val POSITIONS_BEFORE_WHERE_REQUEST_NEXT = 2
+private const val POSITIONS_BEFORE_WHERE_REQUEST_NEXT = 3
 
 class JobsViewModel @Inject constructor(
-        private val jobsRepository: IJobRepository
+    private val jobsRepository: IJobRepository
 ) : BaseFragmentViewModel() {
     lateinit var query: String
     private lateinit var requestNextPageUseCase: RequestNextPageUseCase
@@ -43,22 +43,23 @@ class JobsViewModel @Inject constructor(
         onNextPageRequest()
     }
 
-    fun checkIsNeedNextPage(jobPosition: Int, countOfJobs: Int) {
-        if (!isLast && positionWhereNextRequestHappened < jobPosition && jobPosition == countOfJobs - POSITIONS_BEFORE_WHERE_REQUEST_NEXT) {
+    fun checkIsNeedNextPage(jobPosition: Int) {
+        if (!isLast && positionWhereNextRequestHappened == jobPosition && nextPageLoadDisposable?.isDisposed == true) {
             onNextPageRequest()
-            positionWhereNextRequestHappened = jobPosition
         }
     }
 
 
     private fun onNextPageRequest() {
         nextPageLoadDisposable = requestNextPageUseCase.run()
-                .compose { appViewModel.wrapWithProgress(it) }
-                .subscribeOn(Schedulers.io())
-                .subscribeWithNetworkErrorParse { nextPart ->
-                    isLast = nextPart.isLast
-                    jobsProcessor.onNext(nextPart.jobs)
-                }
+            .compose { appViewModel.wrapWithProgress(it) }
+            .subscribeOn(Schedulers.io())
+            .subscribeWithNetworkErrorParse { nextPart ->
+                isLast = nextPart.isLast
+                positionWhereNextRequestHappened = jobs.size + nextPart.jobs.size -
+                        POSITIONS_BEFORE_WHERE_REQUEST_NEXT
+                jobsProcessor.onNext(nextPart.jobs)
+            }
     }
 
     override fun onCleared() {

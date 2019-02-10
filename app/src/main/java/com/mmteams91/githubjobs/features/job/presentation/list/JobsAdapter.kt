@@ -14,7 +14,7 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.view_list_job.*
 
 class JobsAdapter(
-        var onItemBind: (position: Int, count: Int) -> Unit,
+        var onItemBind: (position: Int) -> Unit,
         var onItemClick: (item: Job) -> Unit
 ) : ListAdapter<Job, JobsAdapter.JobViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
@@ -38,7 +38,7 @@ class JobsAdapter(
                     .into(logo)
             title.text = item.title
             company.text = item.company
-            onItemBind.invoke(position, itemCount)
+            onItemBind.invoke(position)
         }
     }
 

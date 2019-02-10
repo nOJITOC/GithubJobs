@@ -1,4 +1,6 @@
 package com.mmteams91.githubjobs.common.data.network
 
-class NetworkNotAvailableException : RuntimeException() {
+import java.io.IOException
+
+class NetworkNotAvailableException : IOException() {
 }

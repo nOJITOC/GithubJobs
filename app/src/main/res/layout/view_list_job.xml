@@ -26,10 +26,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_8"
+        app:layout_constraintVertical_chainStyle="spread_inside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="80"
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/company"
         tools:text="Tester/Scrummaster" />
 
     <TextView
